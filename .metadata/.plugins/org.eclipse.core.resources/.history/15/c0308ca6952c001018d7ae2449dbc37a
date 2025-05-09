@@ -1,0 +1,10 @@
+package com.ecommerce.controller;
+
+public class UserController {
+
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

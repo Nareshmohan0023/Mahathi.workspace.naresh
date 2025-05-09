@@ -1,0 +1,16 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.utils.InputUtil;
+
+public class AdminController {
+	public static static char exit='y';
+
+	public void start() {
+		do {
+			
+			
+			
+		}while(exit!='y');
+	}
+
+}

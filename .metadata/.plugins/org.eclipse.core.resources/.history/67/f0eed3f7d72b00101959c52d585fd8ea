@@ -1,0 +1,16 @@
+package com.ecommerce.service;
+
+import java.util.Map;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Category;
+
+public interface CategoryService {
+	
+	void addCategory();
+	void deleteCategory();
+	void displayCategory();
+	Category selectCategoryById(String id);
+	
+
+}

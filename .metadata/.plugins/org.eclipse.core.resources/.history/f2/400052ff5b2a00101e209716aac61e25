@@ -1,0 +1,27 @@
+package com.withdrawlsService;
+
+import com.customException.InsufficientFundsException;
+import com.entity.BankAccount;
+
+public class WithdrawlThread extends Thread{
+	
+	private double ammount;
+	private Account acc;
+	
+	
+	
+	public WithdrawlThread(int ammount,BankAccount acc) throws InsufficientFundsException {
+		super();
+		this.ammount = ammount;
+		
+	}
+
+
+
+	@Override
+	public void run() {
+		acc.withdraw(ammount);
+		
+	}
+
+}

@@ -1,0 +1,32 @@
+package tasks;
+
+public class Deamon_Thraed {
+	public static void main(String[] args) {
+		  
+		Thread t1=new Thread(()->{
+			for(int i=0;i<=10;i++) {
+				System.out.println(i+":t1");
+			}
+		});
+		
+		Thread t11=new Thread(()->{
+			for(int i=0;i<=10;i++) {
+				System.out.println(i+":t11");
+			}
+		});
+		
+		Thread t2=new Thread(()->{
+			for(int i=0;i<=50;i++) {
+				System.out.println(i+":daemon");
+			}
+		});
+		
+		t2.setDaemon(true);
+		
+		t1.start();
+		
+		t2.start();
+		t11.start();
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.ecommerce.service;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Product;
+
+public class ProductServiceImpl implements ProductService {
+
+	@Override
+	public void addProduct(Product p) {
+		DataBase.getProdustsList().add(p);
+		String CategoryId=p.getCategoryId();
+		
+	}
+
+}

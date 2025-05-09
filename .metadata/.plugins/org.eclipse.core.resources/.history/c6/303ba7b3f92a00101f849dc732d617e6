@@ -1,0 +1,19 @@
+package com.withdrawlsService;
+
+import com.customException.InsufficientFundsException;
+import com.entity.BankAccount;
+
+public class main {
+
+	public static void main(String[] args) throws InsufficientFundsException {
+		BankAccount acc=new BankAccount("Naresh", 2000);
+		
+		WithdrawlThread w1=new WithdrawlThread(1000,acc);
+		WithdrawlThread w2=new WithdrawlThread(1500,acc);
+		
+		w1.start();
+		w2.start();
+
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.entity.Product;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.ProductServiceImpl;
+import com.ecommerce.utils.InputUtil;
+
+public class ProductController {
+	
+	private ProductService pserv=new ProductServiceImpl();
+	
+	public void addProduct() {
+		String categoryId=InputUtil.getStringInput("Enter Category ID:");
+		String name=InputUtil.getStringInput("Name Of the Product:");
+		int price=InputUtil.getIntegerInput("Enter the Price:");
+		int quantity=InputUtil.getIntegerInput("Enter the Quantity");
+		pserv.addProduct(new Product(name, categoryId, price, quantity));
+	}
+	
+	public void InputUtil() {
+		pserv.displayProducts();
+		int prodId=InputUtil.getIntegerInput("Enter The Product Id as Displayed to Delete the Product");
+		
+		pserv.deleteProduct();
+	}
+
+
+}

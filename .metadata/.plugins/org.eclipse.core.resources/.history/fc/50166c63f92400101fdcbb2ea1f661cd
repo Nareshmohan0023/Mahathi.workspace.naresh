@@ -1,0 +1,38 @@
+package com.entity;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Application {
+	
+	
+	public static int marks=0;
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		Services serv=new Services();
+		List<Question> questions=serv.QuestionLoader();
+		System.out.println("Welcome To Quiz App");
+		for(Question q:questions) {
+			System.out.println(q.getQuestion());
+			for(String opt:q.getOptions()) {
+				System.out.println(opt);
+				System.out.println("Enter the option as 'a' or 'b' or 'c' or 'd':");
+				char option=sc.next().charAt(0);
+				
+				if(q.isCorrect(option)) {
+					marks++;
+				}
+			}
+			System.out.println("#########################");
+		}
+		System.out.println("You scored:",marks);
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.entity;
+
+public class Food {
+	
+	private int id;
+	private double price;
+	private String Name;
+	
+
+}

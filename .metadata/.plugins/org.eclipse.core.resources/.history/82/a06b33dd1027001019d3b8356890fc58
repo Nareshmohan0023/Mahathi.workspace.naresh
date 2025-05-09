@@ -1,0 +1,12 @@
+package tasks;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		Hello t1=new Hello();
+		Welcome t2=new Welcome();
+		Good_Morning t3=new Good_Morning();
+		
+	}
+
+}

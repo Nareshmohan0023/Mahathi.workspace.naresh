@@ -1,0 +1,29 @@
+package com.ecommerce.service;
+
+import java.util.Map;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Category;
+import com.ecommerce.entity.Product;
+
+public class ProductServiceImpl implements ProductService {
+	
+//	private CategoryService cServ=new CategoryServiceImpl();
+
+	@Override
+	public void addProduct(Product p) {
+		DataBase.getProdustsList().add(p);
+		System.out.print("Product added in products");
+		String CategoryId=p.getCategoryId();
+		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+			if(category.getValue().getCategoryId().equals(CategoryId)) {
+				category.getValue().getProductsList().add(p);
+				System.out.println("and added in Category");
+				return;
+			}
+		}
+		
+		
+	}
+
+}

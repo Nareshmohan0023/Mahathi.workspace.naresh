@@ -1,0 +1,44 @@
+package com.ecommerce.service;
+
+import java.util.Map;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Category;
+
+public class CategoryServiceImpl implements CategoryService {
+	
+	public Category selectCategoryById(String id) {
+		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+			if(id.equals(category.getValue().getCategoryId())) {
+				return category.getValue();
+			}
+		}
+		return null;
+
+	}
+
+	@Override
+	public void addCategory(Category c) {
+		int id=Integer.parseInt(c.getCategoryId().replaceAll("\\D", "")
+		DataBase.getCategoriesList().put(, c);
+		
+	}
+
+	@Override
+	public void deleteCategory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void displayCategory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int noItemsInCategory() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

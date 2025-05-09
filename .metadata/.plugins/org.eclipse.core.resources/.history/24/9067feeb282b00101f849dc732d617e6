@@ -1,0 +1,27 @@
+package com.entity;
+
+public class Example {
+	
+	public static void main(String[] args) {
+		Parent obj=new child();
+		obj.message();
+	}
+
+}
+
+abstract class Parent{
+	void relation() {
+	}
+	
+	void message() {
+		System.out.println("Message from parent");
+	}
+}
+
+class child extends Parent{
+	@Override
+	void message() {
+		System.out.println("Message from parent");
+	}
+	
+}

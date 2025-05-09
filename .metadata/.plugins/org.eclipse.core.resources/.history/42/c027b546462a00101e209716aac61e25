@@ -1,0 +1,22 @@
+package com.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Restaurant {
+	
+	public List<Food> Menu=new ArrayList<>();
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+
+		Customer c1=new Customer("Naresh",);
+		Thread t1=new Thread(c1);	
+		System.out.println("Welcome To Our Restaurant");
+		t1.start();
+		
+		
+	}
+
+}

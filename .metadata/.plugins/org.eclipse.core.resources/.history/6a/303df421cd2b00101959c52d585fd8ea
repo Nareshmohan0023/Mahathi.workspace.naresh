@@ -1,0 +1,12 @@
+package com.ecommerce.entity;
+
+import java.util.List;
+
+public class Category {
+	
+	
+	private String Name;
+	private static final String CATEGORY_CODE="CAT"; 
+	private  List<Product> productsList=new Array List;
+
+}

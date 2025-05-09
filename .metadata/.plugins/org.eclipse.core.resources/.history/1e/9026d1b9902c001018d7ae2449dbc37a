@@ -1,0 +1,16 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.utils.InputUtil;
+
+public class AdminController {
+	public static static cahr exit='y';
+
+	public void start() {
+		do {
+			
+			
+			exit=InputUtil.getIntegerInput("Do you Want to continue:'y' or 'n'");
+		}while(e!='y');
+	}
+
+}

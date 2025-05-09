@@ -1,0 +1,21 @@
+package com.ecommerce.utils;
+
+import java.util.Scanner;
+
+public class InputUtil {
+
+	private static Scanner scanner = new Scanner(System.in);
+	
+	public static String getStringInput(String prompt) {
+		System.out.println(prompt);
+		return scanner.next();
+	}
+	
+	public static int getIntegerInput(String prompt) {
+		System.out.println(prompt);
+		return scanner.nextInt();
+	}
+	
+	
+
+}

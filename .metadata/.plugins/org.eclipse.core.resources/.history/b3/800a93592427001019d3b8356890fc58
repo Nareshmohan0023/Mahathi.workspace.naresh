@@ -1,0 +1,12 @@
+package tasks;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadPool {
+	
+	 ExecutorService pool = Executors.newFixedThreadPool(4);
+	 
+	 Runnable t1=new Welcome("t1");
+
+}

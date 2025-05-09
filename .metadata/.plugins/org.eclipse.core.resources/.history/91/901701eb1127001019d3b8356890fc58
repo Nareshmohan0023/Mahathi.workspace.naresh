@@ -1,0 +1,21 @@
+package tasks;
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getName()+"->Its Main Thread");
+		
+		Hello t1=new Hello();
+		Welcome t2=new Welcome();
+		Good_Morning t3=new Good_Morning();
+		
+		t1.setName("Hello_Thread");
+		t2.setName("Welcome_Thread");
+		t3.setName("GoodMorning_Thread");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		
+	}
+
+}

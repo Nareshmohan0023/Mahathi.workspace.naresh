@@ -1,0 +1,48 @@
+package tasks;
+
+public class Main {
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println(Thread.currentThread().getName() + "->Its Main Thread");
+
+		Hello Hello = new Hello();
+		Thread t1=new Thread(Hello);
+		
+		
+		
+		Welcome t2 = new Welcome();
+		Good_Morning t3 = new Good_Morning();
+		
+		Thread t4=new Thread(()->{
+			for(int i=0;i<=5;i++) {
+				System.out.println(Thread.currentThread().getName() +" :Welcome");
+				try {
+					Thread.sleep(1500);
+				}catch(InterruptedException e){
+					System.err.println(e.getMessage());
+				}
+			}
+		});
+
+		t1.setName("Hello_Thread");
+		t2.setName("Welcome_Thread");
+		t3.setName("GoodMorning_Thread");
+
+		
+//		t3.setPriority(10);
+		
+
+		t1.start();
+		t1.join();
+
+		
+		t2.start();
+		t3.start();
+
+		
+		
+		t3.start();
+		t3.join();
+
+	}
+
+}

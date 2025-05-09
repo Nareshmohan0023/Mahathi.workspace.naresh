@@ -1,0 +1,44 @@
+package com.ecommerce.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Category {
+
+	private String Name;
+	private static final String CATEGORY_CODE = "CAT";
+	private List<Product> productsList = new ArrayList<>();
+	private int categoryId;
+	
+	
+	
+	public Category(String name, List<Product> productsList) {
+		super();
+		Name = name;
+		this.productsList = productsList;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public List<Product> getProductsList() {
+		return productsList;
+	}
+	public void setProductsList(List<Product> productsList) {
+		this.productsList = productsList;
+	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+	public static String getCategoryCode() {
+		return CATEGORY_CODE;
+	}
+	
+	
+
+}

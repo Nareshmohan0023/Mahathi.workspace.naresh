@@ -1,0 +1,12 @@
+package com.ecommerce.main;
+
+public class Main {
+
+	public static void main(String[] args) {
+		System.out.println("Hello, Welcome to Amazon");
+		CustomerController ccontrl=new CustomerController();
+		customLoaderForCustomer();
+
+	}
+
+}

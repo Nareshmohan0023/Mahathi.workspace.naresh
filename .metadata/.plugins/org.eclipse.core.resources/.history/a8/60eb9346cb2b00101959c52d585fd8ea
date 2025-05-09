@@ -1,0 +1,11 @@
+package com.ecommerce.entity;
+
+public class Product {
+	
+	private int id;
+	private double price;
+	private String name;
+	private String categoryId;
+	
+
+}

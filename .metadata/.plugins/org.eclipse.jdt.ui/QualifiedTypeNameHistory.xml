@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.lift_application.Lift"/>
+    <fullyQualifiedTypeName name="com.Department.Employee"/>
+    <fullyQualifiedTypeName name="com.task2.School.Student"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.service.ServiceImpl"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="com.ecommerce.entity.Category"/>
+    <fullyQualifiedTypeName name="com.ecommerce.utils.IdGenerator"/>
+    <fullyQualifiedTypeName name="com.ecommerce.utils.InputUtil"/>
+    <fullyQualifiedTypeName name="com.ecommerce.db.DataBase"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,43 @@
+package com.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Customer implements Runnable {
+
+	private String Name;
+	private int orderId;
+	private List<Food> Menu=new ArrayList<>();
+	
+	public Customer(String name,int orderId,List<Food> Menu) {
+		super();
+		
+		this.Name = name;
+		this.orderId=orderId;
+		this.Menu=Menu;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	@Override
+	public void run() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Hi, I am "+this.getName()+"I like To order Some Food");
+		System.out.println("Oh ,Here's the Menu");	
+		for(Food f:this.Menu) {
+			System.out.println("id:"+f.getId()+" ,Name:"+f.getName()+" ,Price:"+f.getPrice());
+		}
+		
+		
+		
+		
+	}
+
+}

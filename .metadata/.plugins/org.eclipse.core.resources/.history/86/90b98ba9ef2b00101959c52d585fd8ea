@@ -1,0 +1,94 @@
+package com.ecommerce.entity;
+
+import com.ecommerce.utils.IdGenerator;
+
+public class Product {
+
+	private int id;
+	private double price;
+	private String name;
+	private String categoryId;
+	private final int minProduct = 3;
+	private int quantity;
+	private boolean isAvailable=false;
+
+	public Product( String name, String categoryId,double price ,int quantity) {
+		super();
+		this.id = IdGenerator.productIdGenerator();
+		this.price = price;
+		this.name = name;
+		this.categoryId = categoryId;
+		this.quantity = quantity;
+		if(this.quantity>0) {
+			this.isAvailable=true;
+		}
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getMinProduct() {
+		return minProduct;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", price=" + price + ", name=" + name + ", categoryId=" + categoryId
+				+ ", minProduct=" + minProduct + ", quantity=" + quantity + ", isAvailable=" + isAvailable + "]";
+	}
+	
+	
+	public static void main(String[] args) {
+		Product p=new Product("Laptop","CAT001",900.00,9);
+		p.toString();
+				
+	}
+
+	
+
+}

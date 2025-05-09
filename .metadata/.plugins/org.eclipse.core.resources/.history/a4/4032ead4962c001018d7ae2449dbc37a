@@ -1,0 +1,65 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.ProductServiceImpl;
+import com.ecommerce.utils.InputUtil;
+
+public class AdminController {
+	ProductController pcontrl = new ProductController();
+	CategoryController ccontl=new CategoryController();
+	
+
+	public void start() {
+		char exit = 'y';
+		do {
+			int choice = 0;
+			System.out.println("1.Add Product \n2.DeleteProduct \n3.Alter quantity \n4.Add Category \n5.View Stock");
+			switch (choice) {
+			case 1:
+				addProduct();
+				break;
+			case 2:
+				deleteProduct();
+				break;
+
+			case 3:
+				alterQuantity();
+				break;
+				
+			case 4:
+				addCategory();
+				break;
+			case 5:
+				ViewStock();
+				break;
+			default:
+				System.out.println("Invalid Choice");
+
+			}
+
+			exit = InputUtil.getStringInput("Do you want to continue 'y' or 'n'").charAt(0);
+		} while (exit == 'y');
+	}
+
+	private void addCategory() {
+		ccontl.addCategory();
+		
+	}
+
+	private void ViewStock() {
+		
+	}
+
+	private void alterQuantity() {
+		pcontrl.upadteQuantity();
+	}
+
+	private void deleteProduct() {
+		pcontrl.deleteProduct();
+	}
+
+	private void addProduct() {
+		pcontrl.addProduct();
+	}
+
+}

@@ -1,0 +1,126 @@
+package com.ecommerce.service;
+
+import java.util.Map;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Category;
+import com.ecommerce.entity.Product;
+
+public class CategoryServiceImpl implements CategoryService {
+	
+	public Category selectCategoryByCode(String id) {
+		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+			if(id.equals(category.getValue().getCategoryId())) {
+				return category.getValue();
+			}
+		}
+		return null;
+
+	}
+	public Category selectCategoryById(int id) {
+		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+			if(id==category.getKey()) {
+				return category.getValue();
+			}
+		}
+		return null;
+
+	}
+
+	@Override
+	public void addCategory(Category c) {
+		int id=Integer.parseInt(c.getCategoryId().replaceAll("\\D", ""));
+		DataBase.getCategoriesList().put(id, c);
+		System.out.println("Category added Successfully!");
+		
+	}
+
+	@Override
+	public void deleteCategory(String id) {
+//		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+//			if(category.getValue().getCategoryId().equals(id)) {
+//				DataBase.getCategoriesList().remove(category.getKey());
+//			}
+//		}
+		Category c= selectCategoryByCode(id);
+		if(DataBase.getCategoriesList().containsValue(c)) {
+			DataBase.getCategoriesList().remove(Integer.parseInt(c.getCategoryId().replace("\\D", "")));
+			System.out.println("Category Deleted Successfully");
+		}else {
+			System.out.println("Category Not found to delete");
+		}
+	}
+
+	@Override
+	public void displayCategory() {
+		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+			System.out.println("Id:"+category.getKey()+"| C-Name:"+category.getValue().getName()+"| C-Code:"+category.getValue().getCategoryId());
+		}
+		
+	}
+
+	@Override
+	public int noItemsInCategory() {
+		int items=DataBase.getCategoriesList().size();
+		return items;
+	}
+
+	@Override
+	public void displayCategoryProduct(int id) {
+//		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+//			System.out.println("Id:"+category.getKey()+"| C-Name:"+category.getValue().getName()+"| C-Code:"+category.getValue().getCategoryId());
+//		}
+		Category c=selectCategoryById(id);
+		System.out.println("CategoryName:"+c.getName());
+		if(c!=null) {
+			for(Product p:c.getProductsList()) {
+				boolean lowStock=false;
+				if(p.getQuantity()<p.getMinProduct()) {
+					lowStock=true;
+				}
+				System.out.println("ID:"+p.getId()
+				+"\nName:"+p.getName() 
+				+"\nPrice:"+p.getPrice()
+				+"\nStock Available:"+p.getQuantity());
+				System.out.println();
+				if(lowStock) {
+					System.err.println("Status:Low in Stock Order Soon! Dont Miss It");
+				}else {
+					System.out.println("Status:Availabe");
+
+				}
+			}
+		}
+	
+		
+		
+	}
+	@Override
+	public void displayProductsByCategory() {
+		
+		for(Map.Entry<Integer, Category> category:DataBase.getCategoriesList().entrySet()) {
+			System.out.println("Id:"+category.getKey()+"| C-Name:"+category.getValue().getName()+"| C-Code:"+category.getValue().getCategoryId());
+			for(Product p:category.getValue().getProductsList()) {
+				boolean lowStock = false;
+				if (p.getQuantity() < p.getMinProduct()) {
+					lowStock = true;
+				}
+				System.out.println("ID:" + p.getId() + "\nName:" + p.getName() + "\nPrice:" + p.getPrice()
+						+ "\nStock Available:" + p.getQuantity());
+				System.out.println();
+				if (lowStock) {
+					System.err.println("Status:Low in Stock !");
+				} else {
+					System.out.println("Status:Availabe");
+
+				}
+			}
+		}
+	}
+	@Override
+	public void stockDetails() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,19 @@
+package com.Services;
+
+import java.util.List;
+
+import com.entity.Food;
+
+public class Service_Impl implements Service {
+
+	@Override
+	public Food selectById(int id,List<Food> Menu) {
+		for(Food f:Menu) {
+			if(f.getId()==id) {
+				return f;
+			}
+		}
+		return null;
+	}
+
+}

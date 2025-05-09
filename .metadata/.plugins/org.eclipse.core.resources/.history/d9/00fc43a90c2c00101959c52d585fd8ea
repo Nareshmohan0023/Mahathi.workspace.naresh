@@ -1,0 +1,24 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.entity.Customer;
+import com.ecommerce.service.CustomerService;
+import com.ecommerce.service.CustomerServiceImpl;
+import com.ecommerce.utils.InputUtil;
+
+public class CustomerController {
+	CustomerService cserv = new CustomerServiceImpl();
+
+	public void createCustomer() {
+		String Name = InputUtil.getStringInput("Enter The Name Of the Customer:");
+		cserv.addCustomer(new Customer(Name));
+	}
+
+	public void customLoaderForCustomer() {
+		int no = InputUtil.getIntegerInput("Enter no of customers To create");
+		for (int i = 1; i <= no; i++) {
+			System.out.println("Customer "+i);
+			createCustomer();
+		}
+	}
+
+}

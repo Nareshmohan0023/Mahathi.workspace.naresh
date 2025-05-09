@@ -1,0 +1,14 @@
+package com.ecommerce.service;
+
+import com.ecommerce.entity.Product;
+
+public interface ProductService {
+	
+	void addProduct(Product p);
+	void deleteProduct(Product p);
+	void displayProducts();
+	Product selectProductById(int id);
+	void upadteQuantity(Product p);
+	
+
+}

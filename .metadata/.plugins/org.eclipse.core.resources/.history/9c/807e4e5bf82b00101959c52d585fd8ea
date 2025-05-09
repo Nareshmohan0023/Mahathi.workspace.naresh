@@ -1,0 +1,19 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.entity.Product;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.ProductServiceImpl;
+import com.ecommerce.utils.InputUtil;
+
+public class ProductController {
+	
+	private ProductService pserv=new ProductServiceImpl();
+	
+	public void addProduct() {
+		String Name=InputUtil.getStringInput("Name Of the Product:");
+		String CategoryId=InputUtil.getStringInput("Enter Category ID:")
+		pserv.addProduct(new Product(null, null, 0, 0));
+	}
+
+
+}

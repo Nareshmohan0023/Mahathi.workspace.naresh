@@ -1,0 +1,16 @@
+package Bank_Balance_Exception;
+
+import java.util.Scanner;
+
+import Bank_Balance_Exception.Custom.Custom_Exception;
+import Bank_Balance_Exception.Services.Service;
+
+public class ATM {
+
+	public static void main(String[] args) {
+		Atm_Service atm=new Atm_Service();
+		Thread t1=new Thread(atm);
+		t1.start();
+	}
+
+}

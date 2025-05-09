@@ -1,0 +1,19 @@
+package com.entity;
+
+import java.util.List;
+
+public class Application {
+
+	public static void main(String[] args) {
+		Services serv=new Services();
+		List<Question> questions=serv.QuestionLoader();
+		for(Question q:questions) {
+			System.out.println(q.getQuestion());
+			System.out.println(q.getOptions());
+		}
+		
+		System.out.println("Welcome To Quiz App");
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.utils.InputUtil;
+
+public class AdminController {
+	
+
+	public void start() {
+		char exit='y';
+		do {
+			int choice = 0;
+			switch(choice){
+			case 1:System.out.println("1.Add Product");
+			
+					break;
+			
+			
+			}
+			
+			
+			
+			
+			exit=InputUtil.getStringInput("Do you want to continue 'y' or 'n'").charAt(0);
+		}while(exit=='y');
+	}
+
+}

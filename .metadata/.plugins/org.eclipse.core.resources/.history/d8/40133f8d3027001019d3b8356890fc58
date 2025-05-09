@@ -1,0 +1,27 @@
+
+package tasks;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadPool {
+
+    public static void main(String[] args) {
+        // Create a fixed thread pool with 4 threads
+        ExecutorService pool = Executors.newFixedThreadPool(4);
+
+        // Submit 4 tasks to the pool
+        Runnable t1 = new MessagePrinter("Task-1");
+        Runnable t2 = new MessagePrinter("Task-2");
+        Runnable t3 = new MessagePrinter("Task-3");
+        Runnable t4 = new MessagePrinter("Task-4");
+
+        pool.execute(t1);
+        pool.execute(t2);
+        pool.execute(t3);
+        pool.execute(t4);
+
+        // Shut down the pool after task submission
+        pool.shutdown();
+    }
+}

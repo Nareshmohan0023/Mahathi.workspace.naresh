@@ -1,0 +1,14 @@
+package com.entity;
+
+public class Application {
+
+	public static void main(String[] args) {
+		Services serv=new Services();
+		Questions_collection questions=serv.QuestionLoader();
+		System.out.println(questions);
+		
+		System.out.println("Welcome To Quiz App");
+		
+	}
+
+}

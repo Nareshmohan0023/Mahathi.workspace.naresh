@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;Bank_Balance_Exception.Account.AccountNum&apos; in &apos;Bank_Balance_Exception.Account&apos;&#x0D;&#x0A;- Original project: &apos;Internship&apos;&#x0D;&#x0A;- Original element: &apos;Bank_Balance_Exception.Account.AccountNum&apos;&#x0D;&#x0A;- Getter method name: &apos;getAccountNum&apos;&#x0D;&#x0A;- Setter method name: &apos;setAccountNum&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;AccountNum&apos;" flags="589830" getter="getAccountNum" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;Bank_Balance_Exception{Account.java[Account^AccountNum" insertion="8" setter="setAccountNum" stamp="1745901347203" version="1.0" visibility="1"/>
+</session>

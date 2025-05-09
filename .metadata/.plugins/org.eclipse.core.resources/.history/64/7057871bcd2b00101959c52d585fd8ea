@@ -1,0 +1,9 @@
+package com.ecommerce.entity;
+
+public class Category {
+	
+	
+	private String Name;
+	private static final String CATEGORY_CODE="CAT"; 
+
+}

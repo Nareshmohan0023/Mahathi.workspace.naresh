@@ -1,0 +1,12 @@
+package com.ecommerce.service;
+
+import com.ecommerce.entity.CartItem;
+import com.ecommerce.entity.Customer;
+
+public interface CartService {
+	
+	void addItem(Customer customer,CartItem item);
+	void removeItem(Customer customer ,CartItem item);
+	void clearCart(Customer);
+
+}

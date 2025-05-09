@@ -1,0 +1,100 @@
+package Calculator;
+
+import java.util.*;
+
+public class Main_Calculator {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Calculator calculator = new Calculator();
+		System.out.println("Welcome to Calculator App");
+		int exit = 0;
+		do {
+
+			System.out.println("1.Add 2.Subtract 3.Division 4.Multiplication");
+			int op = sc.nextInt();
+			System.out.println("Enter the number of inputs");
+			int inputs = sc.nextInt();
+			if(inputs>2) {
+				int[] arr = new int[inputs];
+				for (int i = 0; i < inputs; i++) {
+					try {
+						System.out.println("Enter number " + (i + 1) + ":");
+						arr[i] = sc.nextInt();
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
+				}
+				System.out.println(Arrays.toString(arr));
+
+				switch (op) {
+				case 1:
+
+					System.out.println("Addition of the given numbers is:" + calculator.add(arr));
+
+					break;
+				case 2:
+					System.out.println("Addition of the given numbers is:" + calculator.subtract(arr));
+
+					break;
+				case 3:
+					System.out.println("The Division of the Numbers:" + calculator.division(arr));
+					break;
+				case 4:
+					System.out.println("The multiplication of the Given Nunumbers is:" + calculator.multiplication(arr));
+					break;
+				default:
+					System.out.println("Invalid operation ");
+					break;
+
+				}
+
+				System.out.println("Do you Want to exit:1 for exit or 0 for continue ");
+				exit = sc.nextInt();
+			}
+			
+
+			
+
+		
+		} while (exit == 0);
+	}
+
+}
+
+class Calculator {
+	static int solution = 0;
+
+	public int add(int[] arr) {
+		solution = 0;
+		for (int i : arr) {
+			solution += i;
+		}
+		return solution;
+	}
+
+	public int subtract(int[] arr) {
+		solution = arr[0];
+
+		for (int i = 1; i < arr.length; i++) {
+			solution -= arr[i];
+		}
+		return solution;
+	}
+
+	public int multiplication(int[] arr) {
+		solution = 1;
+		for (int i : arr) {
+			solution *= i;
+		}
+		return solution;
+	}
+
+	public int division(int[] arr) {
+		solution = 1;
+		for (int i : arr) {
+			solution /= i;
+		}
+		return solution;
+	}
+}

@@ -1,0 +1,15 @@
+package com.ecommerce.service;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Customer;
+
+public class CustomerServiceImpl implements CustomerService {
+
+	@Override
+	public void addCustomer(Customer customer) {
+		DataBase.getCustomerList().put(customer.getCustomerId(), customer);
+		System.out.println("Customer added Successfully");
+		
+	}
+
+}

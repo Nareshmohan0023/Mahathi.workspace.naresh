@@ -1,0 +1,10 @@
+package com.management.entity;
+
+public class Address {
+	
+	private String city;
+	private String state;
+	private int pinCode;
+	
+
+}

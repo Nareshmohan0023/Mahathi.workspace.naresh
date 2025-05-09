@@ -1,0 +1,42 @@
+package com.ecommerce.db;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.ecommerce.entity.Category;
+import com.ecommerce.entity.Customer;
+import com.ecommerce.entity.Product;
+
+public class DataBase {
+
+	private static List<Product> produstsList = new ArrayList<>();
+	private static Map<Integer, Category> CategoriesList = new HashMap<>();
+	private static Map<Integer, Customer> customerList = new HashMap<>();
+
+	public static Map<Integer, Customer> getCustomerList() {
+		return customerList;
+	}
+
+	public static void setCustomerList(Map<Integer, Customer> customerList) {
+		DataBase.customerList = customerList;
+	}
+
+	public static List<Product> getProdustsList() {
+		return produstsList;
+	}
+
+	public static void setProdustsList(List<Product> produstsList) {
+		DataBase.produstsList = produstsList;
+	}
+
+	public static Map<Integer, Category> getCategoriesList() {
+		return CategoriesList;
+	}
+
+	public static void setCategoriesList(Map<Integer, Category> categoriesList) {
+		CategoriesList = categoriesList;
+	}
+
+}

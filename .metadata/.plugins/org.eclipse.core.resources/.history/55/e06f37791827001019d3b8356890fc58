@@ -1,0 +1,33 @@
+package tasks;
+
+public class Main {
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println(Thread.currentThread().getName() + "->Its Main Thread");
+		
+		ThreadGroup TG=new ThreadGroup("MyGroup");
+
+		Hello Hello = new Hello();
+		Thread t1=new Thread(Hello);
+		
+		
+		
+		Welcome Welcome = new Welcome();
+		Good_Morning Goodmorning = new Good_Morning();
+		
+		Thread t4=new Thread(()->{
+			for(int i=0;i<=5;i++) {
+				System.out.println(Thread.currentThread().getName() +" :Welcome");
+				try {
+					Thread.sleep(1500);
+				}catch(InterruptedException e){
+					System.err.println(e.getMessage());
+				}
+			}
+		});
+
+
+		
+
+	}
+
+}

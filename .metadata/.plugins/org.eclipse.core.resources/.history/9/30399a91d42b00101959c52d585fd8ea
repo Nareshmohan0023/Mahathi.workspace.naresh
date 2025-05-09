@@ -1,0 +1,71 @@
+package com.ecommerce.entity;
+
+import com.ecommerce.utils.IdGenerator;
+
+public class Product {
+
+	private int id;
+	private double price;
+	private String name;
+	private String categoryId;
+	private final int minProduct = 3;
+	private int quantity;
+
+	public Product( String name, String categoryId, int quantity) {
+		super();
+		this.id = IdGenerator.productIdGenerator();
+		this.price = price;
+		this.name = name;
+		this.categoryId = categoryId;
+		this.quantity = quantity;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getMinProduct() {
+		return minProduct;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+	
+	public static void main(String[] args) {
+		Product p=new Product(price, categoryId, categoryId, id);
+	}
+
+}

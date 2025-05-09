@@ -1,0 +1,23 @@
+package tasks;
+
+public class MessagePrinter implements Runnable {
+
+	private String Message;
+
+	public MessagePrinter(String message) {
+		super();
+		Message = message;
+	}
+
+	public String getMessage() {
+		return Message;
+	}
+
+	@Override
+	public void run() {
+		
+		System.out.println("Message Printed by:"this.Message);
+
+	}
+
+}

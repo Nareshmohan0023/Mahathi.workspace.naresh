@@ -1,0 +1,10 @@
+package com.ecommerce.utils;
+
+public class IdGenerator {
+	
+	public String CATIdGenerator(String code,int id) {
+		return null;
+		
+	}
+
+}

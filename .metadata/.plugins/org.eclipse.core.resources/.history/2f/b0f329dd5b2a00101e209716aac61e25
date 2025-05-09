@@ -1,0 +1,24 @@
+package com.withdrawlsService;
+
+import com.entity.BankAccount;
+
+public class WithdrawlThread extends Thread{
+	
+	private double ammount;
+	
+	
+	
+	public WithdrawlThread(int ammount,BankAccount acc) {
+		super();
+		this.ammount = ammount;
+		acc.withdraw(ammount);
+	}
+
+
+
+	@Override
+	public void run() {
+		
+	}
+
+}

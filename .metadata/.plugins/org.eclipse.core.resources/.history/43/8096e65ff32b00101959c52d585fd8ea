@@ -1,0 +1,32 @@
+package com.ecommerce.service;
+
+import com.ecommerce.entity.CartItem;
+import com.ecommerce.entity.Customer;
+
+public class CartServiceImpl implements CartService {
+
+	@Override
+	public void addItem(Customer customer, CartItem item) {
+		customer.getCart().getCart().add(item);
+		System.out.println("Item added successfully !");
+	}
+
+	@Override
+	public void removeItem(Customer customer, CartItem item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clearCart(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void displayCart(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
