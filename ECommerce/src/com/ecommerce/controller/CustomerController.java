@@ -27,13 +27,19 @@ public class CustomerController {
 		cserv.displayCustomer();
 	}
 	
-	public boolean isCustomer() {
+	public Customer isCustomer() {
 		String name=InputUtil.getStringInput("Enter the Name of the Customer to get into Account:");
+		Customer customer=returnCustomer(name);
+
 		if(cserv.customerValidation(name)) {
 			System.out.println("Welcome ,"+name);
-			return true;
+			return customer;
 		}
 		System.out.println("User, Not Found !");
-		return false;
+		return null;
+	}
+	
+	public Customer returnCustomer(String Name) {
+		return cserv.returnCustomer(Name);
 	}
 }

@@ -1,25 +1,35 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.entity.Customer;
 import com.ecommerce.utils.InputUtil;
 
 public class UserController {
 
-	public void start() {
+	public void start(Customer c) {
+		ProductController pcntrl=new ProductController();
+		CategoryController ccntrl=new CategoryController();
+		CartController cacntrl=new CartController();
+		
+		
 		char exit = 'y';
 		do {
 			int choice = 0;
-			System.out.println("1.Add Product \n2.DeleteProduct \n3.Alter quantity \n4.View Stock");
+			System.out.println("1.See Products \n2.See by Category \n3.Add to cart \n4.edit cart \n5.Confirm Order");
+			choice=InputUtil.getIntegerInput("Enter The Choice in Integer");
 			switch (choice) {
 			case 1:
-				
+				pcntrl.displayProducts();
 				break;
 			case 2:
+				ccntrl.displayProductsByCategory();
 				break;
 
 			case 3:
+				cacntrl.addCart(c);
 				break;
 
 			case 4:
+				cacntrl.editCart(c);
 				break;
 			default:
 				System.out.println("Invalid Choice");

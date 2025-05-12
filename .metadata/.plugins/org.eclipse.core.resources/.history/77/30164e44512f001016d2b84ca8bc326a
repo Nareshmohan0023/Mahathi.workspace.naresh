@@ -1,0 +1,65 @@
+package com.ecommerce.service;
+
+import com.ecommerce.entity.CartItem;
+import com.ecommerce.entity.Customer;
+import com.ecommerce.entity.Product;
+
+public class CartServiceImpl implements CartService {
+
+	@Override
+	public void addItem(Customer customer, CartItem item) {
+		customer.getCart().getCart().add(item);
+		System.out.println("Item added successfully !");
+	}
+
+	@Override
+	public void removeItem(Customer customer, CartItem item) {
+		// TODO Auto-generated method stub
+		customer.getCart().getCart().remove(item);
+		System.out.println("Item removed successfully !");
+
+	}
+
+	@Override
+	public void clearCart(Customer customer) {
+		// TODO Auto-generated method stub
+		customer.getCart().getCart().clear();
+		System.out.println("Cart cleared");
+
+	}
+
+	@Override
+	public void displayCart(Customer customer) {
+		for (CartItem item : customer.getCart().getCart()) {
+			double price = item.getQuantity() * item.getProduct().getPrice();
+			System.out.println("P.Name:" + item.getProduct().getName() + " Quantity:" + item.getQuantity() + " price:"
+					+ "(" + item.getProduct().getPrice() + "*" + item.getQuantity() + ")=" + price);
+		}
+
+	}
+
+	@Override
+	public void reduceQuantity(Customer customer, int productId,int quantity) {
+		for (CartItem item : customer.getCart().getCart()) {
+			if (productId == item.getProduct().getId()) {
+				item.setQuantity(quantity);
+				System.out.println("Quantity changed");
+				return;
+			}
+		}
+		System.out.println("Unable To cahnge Quantity");
+	}
+
+	@Override
+	public CartItem selectCartItem(Product p,Customer c) {
+		displayCart(c);
+		for(CartItem item:c.getCart().getCart()) {
+			if(p.equals(item.getProduct())) {
+				return item;
+				
+			}
+		}
+		return null;
+	}
+
+}

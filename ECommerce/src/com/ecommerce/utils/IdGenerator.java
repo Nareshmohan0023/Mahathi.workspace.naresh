@@ -4,10 +4,11 @@ import com.ecommerce.db.DataBase;
 
 public class IdGenerator {
 	private static int counter = 0;
+	static String Code="CAT";
 
-	public static String CATIdGenerator(String code) {
+	public static String CATIdGenerator() {
 		counter++;
-		return code + String.format("%03d", counter);
+		return Code + String.format("%03d", counter);
 	}
 
 	public static int productIdGenerator() {

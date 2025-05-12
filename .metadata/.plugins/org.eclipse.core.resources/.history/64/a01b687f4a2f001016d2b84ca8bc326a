@@ -1,0 +1,33 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.utils.InputUtil;
+
+public class UserController {
+
+	public void start() {
+		char exit = 'y';
+		do {
+			int choice = 0;
+			System.out.println("1.Add Product \n2.DeleteProduct \n3.Alter quantity \n4.View Stock");
+			switch (choice) {
+			case 1:
+				
+				break;
+			case 2:
+				break;
+
+			case 3:
+				break;
+
+			case 4:
+				break;
+			default:
+				System.out.println("Invalid Choice");
+
+			}
+
+			exit = InputUtil.getStringInput("Do you want to continue 'y' or 'n'").charAt(0);
+		} while (exit == 'y');
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.ecommerce.main;
+
+import com.ecommerce.controller.AdminController;
+import com.ecommerce.controller.CustomerController;
+
+public class Main {
+
+	public static void main(String[] args) {
+		AdminController acntrl=new AdminController();
+		System.out.println("Hello, Welcome to Personal-Kart");
+		CustomerController ccontrl = new CustomerController();
+		ccontrl.loaderForCustomer();
+//		System.out.println(DataBase.getCustomerList().size());
+		ccontrl.displayCustomer();
+		do {
+			if (ccontrl.isCustomer()) {
+				System.out.println("");
+			}
+		} while (false);
+
+	}
+
+}

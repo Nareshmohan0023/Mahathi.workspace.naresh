@@ -31,4 +31,15 @@ public class CustomerServiceImpl implements CustomerService {
 		return false;
 	}
 
+	@Override
+	public Customer returnCustomer(String name) {
+		for(Map.Entry<Integer, Customer> e:DataBase.getCustomerList().entrySet()) {
+			if(name.equalsIgnoreCase(e.getValue().getName())) {
+				return e.getValue();
+			}
+		}
+		return null;
+	}
+	
+
 }
