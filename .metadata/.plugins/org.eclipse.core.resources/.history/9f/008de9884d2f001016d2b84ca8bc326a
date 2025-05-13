@@ -1,0 +1,16 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.entity.Customer;
+import com.ecommerce.service.CartService;
+import com.ecommerce.service.CartServiceImpl;
+
+public class CartController {
+	CartService cserv=new CartServiceImpl();
+	
+	public void addCart(Customer c) {
+		cserv.addItem(c, item);
+		
+	}
+	
+
+}

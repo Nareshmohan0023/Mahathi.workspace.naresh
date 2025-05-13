@@ -15,7 +15,11 @@ public class Category {
 	public Category(String name) {
 		super();
 		Name = name;
-		this.categoryId = IdGenerator.CATIdGenerator(CATEGORY_CODE);
+		this.categoryId = IdGenerator.CATIdGenerator();
+	}
+
+	public Category() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -49,6 +53,11 @@ public class Category {
 	@Override
 	public String toString() {
 		return "Category [Name=" + Name + ", productsList=" + productsList + ", categoryId=" + categoryId + "]";
+	}
+
+	public void setId(String catIdGenerator) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

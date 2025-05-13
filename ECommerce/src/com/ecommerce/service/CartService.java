@@ -2,6 +2,7 @@ package com.ecommerce.service;
 
 import com.ecommerce.entity.CartItem;
 import com.ecommerce.entity.Customer;
+import com.ecommerce.entity.Product;
 
 public interface CartService {
 	
@@ -10,5 +11,6 @@ public interface CartService {
 	void clearCart(Customer customer);
 	void displayCart(Customer customer);
 	void reduceQuantity(Customer customer,int productId,int quantity);
+	CartItem selectCartItem(Product p,Customer c);
 
 }

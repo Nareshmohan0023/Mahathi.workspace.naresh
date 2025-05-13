@@ -16,6 +16,10 @@ public class Customer {
 		this.cart=new Cart();
 	}
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCustomerId() {
 		return customerId;
 	}

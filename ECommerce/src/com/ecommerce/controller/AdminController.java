@@ -1,7 +1,11 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.service.ProductService;
-import com.ecommerce.service.ProductServiceImpl;
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Cart;
+import com.ecommerce.entity.Category;
+import com.ecommerce.entity.Customer;
+import com.ecommerce.entity.Product;
+import com.ecommerce.utils.IdGenerator;
 import com.ecommerce.utils.InputUtil;
 
 public class AdminController {
@@ -61,5 +65,39 @@ public class AdminController {
 	private void addProduct() {
 		pcontrl.addProduct();
 	}
+	
+	public static void loadInitialData() {
+	    // Create 5 Customers
+	    for (int i = 1; i <= 5; i++) {
+	        Customer customer = new Customer();
+	        customer.setCustomerId(IdGenerator.customerIdGenerator());;
+	        customer.setName("Customer " + i);
+//	        customer.s("customer" + i + "@example.com");
+//	        customer.setPassword("pass" + i);
+	        customer.setCart(new Cart());
+	        DataBase.getCustomerList().put(customer.getCustomerId(), customer);
+	    }
+
+	    // Create 3 Categories and 5 Products for each
+	    for (int i = 1; i <= 3; i++) {
+	        Category category = new Category();
+	        category.setCategoryId(IdGenerator.CATIdGenerator());
+	        category.setName("Category " + i);
+	        int id=Integer.parseInt(category.getCategoryId().replaceAll("\\D", ""));
+	        DataBase.getCategoriesList().put(id, category);
+
+	        for (int j = 1; j <= 5; j++) {
+	            Product product = new Product();
+	            product.setId(IdGenerator.productIdGenerator());
+	            product.setName("Product " + j + " - Cat " + i);
+	            product.setPrice(100 + j * 10);
+	            product.setCategoryId(category.getCategoryId());
+	            DataBase.getProdustsList().add(product);
+	        }
+	    }
+
+	    System.out.println("Sample data loaded successfully.");
+	}
+
 
 }

@@ -1,0 +1,102 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.db.DataBase;
+import com.ecommerce.entity.Cart;
+import com.ecommerce.entity.Category;
+import com.ecommerce.entity.Customer;
+import com.ecommerce.entity.Product;
+import com.ecommerce.utils.IdGenerator;
+import com.ecommerce.utils.InputUtil;
+
+public class AdminController {
+	ProductController pcontrl = new ProductController();
+	CategoryController ccontl=new CategoryController();
+	
+
+	public void start() {
+		char exit = 'y';
+		do {
+			int choice = 0;
+			System.out.println("1.Add Product \n2.DeleteProduct \n3.Alter quantity \n4.Add Category \n5.View Stock");
+			switch (choice) {
+			case 1:
+				addProduct();
+				break;
+			case 2:
+				deleteProduct();
+				break;
+
+			case 3:
+				alterQuantity();
+				break;
+				
+			case 4:
+				addCategory();
+				break;
+			case 5:
+				ViewStock();
+				break;
+			default:
+				System.out.println("Invalid Choice");
+
+			}
+
+			exit = InputUtil.getStringInput("Do you want to continue 'y' or 'n'").charAt(0);
+		} while (exit == 'y');
+	}
+
+	private void addCategory() {
+		ccontl.addCategory();
+		
+	}
+
+	private void ViewStock() {
+		ccontl.displayProductsByCategory();
+	}
+
+	private void alterQuantity() {
+		pcontrl.upadteQuantity();
+	}
+
+	private void deleteProduct() {
+		pcontrl.deleteProduct();
+	}
+
+	private void addProduct() {
+		pcontrl.addProduct();
+	}
+	
+	public static void loadInitialData() {
+	    // Create 5 Customers
+	    for (int i = 1; i <= 5; i++) {
+	        Customer customer = new Customer();
+	        customer.setCustomerId(IdGenerator.customerIdGenerator());;
+	        customer.setName("Customer " + i);
+//	        customer.s("customer" + i + "@example.com");
+//	        customer.setPassword("pass" + i);
+	        customer.setCart(new Cart());
+	        DataBase.getCustomerList().put(customer.getCustomerId(), customer);
+	    }
+
+	    // Create 3 Categories and 5 Products for each
+	    for (int i = 1; i <= 3; i++) {
+	        Category category = new Category();
+	        category.setId(IdGenerator.CATIdGenerator());
+	        category.setName("Category " + i);
+	        categoryList.add(category);
+
+	        for (int j = 1; j <= 5; j++) {
+	            Product product = new Product();
+	            product.setId(IdGenerator.generateProductId());
+	            product.setName("Product " + j + " - Cat " + i);
+	            product.setPrice(100 + j * 10);
+	            product.setCategoryId(category.getId());
+	            productList.add(product);
+	        }
+	    }
+
+	    System.out.println("Sample data loaded successfully.");
+	}
+
+
+}

@@ -6,4 +6,5 @@ public interface CustomerService {
 	void addCustomer(Customer customer);
 	void displayCustomer();
 	boolean customerValidation(String name);
+	Customer returnCustomer(String name);
 }

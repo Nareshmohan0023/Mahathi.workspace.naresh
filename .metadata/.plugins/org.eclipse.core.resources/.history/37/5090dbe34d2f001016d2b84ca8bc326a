@@ -1,0 +1,25 @@
+package com.ecommerce.controller;
+
+import com.ecommerce.entity.Customer;
+import com.ecommerce.entity.Product;
+import com.ecommerce.service.CartService;
+import com.ecommerce.service.CartServiceImpl;
+import com.ecommerce.service.ProductService;
+import com.ecommerce.service.ProductServiceImpl;
+import com.ecommerce.utils.InputUtil;
+
+public class CartController {
+	CartService cserv = new CartServiceImpl();
+	ProductService pserv = new ProductServiceImpl();
+
+	public void addCart(Customer c) {
+		int id=InputUtil.getIntegerInput("Enter The Product Id to Add to Cart");
+		
+		Product product=pserv.selectProductById(id);
+		
+		int qunatity=InputUtil.getIntegerInput("Enter The Quantity Of the Item");
+		cserv.addItem(c, item);
+
+	}
+
+}

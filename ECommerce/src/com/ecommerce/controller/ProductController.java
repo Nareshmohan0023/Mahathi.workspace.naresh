@@ -32,6 +32,11 @@ public class ProductController {
 		pserv.upadteQuantity(p, quantity);
 	}
 	
+	public void displayProducts() {
+		pserv.displayProducts();
+		
+	}
+	
 	
 	
 	
