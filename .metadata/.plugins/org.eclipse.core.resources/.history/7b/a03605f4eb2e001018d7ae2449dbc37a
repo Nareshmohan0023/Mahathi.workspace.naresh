@@ -1,0 +1,6 @@
+package com.management.service;
+
+public interface EmployeeService {
+	void addEmployee();
+
+}

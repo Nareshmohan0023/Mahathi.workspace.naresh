@@ -1,0 +1,210 @@
+package com.management.controller;
+
+import com.management.database.DataBase;
+import com.management.entity.Address;
+import com.management.entity.Employee;
+import com.management.entity.JobProfile;
+import com.management.entity.User;
+//import com.management.e.DataBase;
+import com.management.exception.InvalidPinException;
+import com.management.service.AdminService;
+import com.management.service.AdminServiceImpl;
+import com.management.service.EmployeeService;
+import com.management.service.EmployeeServiceImpl;
+import com.management.utils.EmailGenerator;
+import com.management.utils.IdGenerator;
+import com.management.utils.InputUtil;
+import com.management.utils.Validator;
+
+public class AdminController {
+
+	AdminService aserv = new AdminServiceImpl();
+	EmployeeService eserv = new EmployeeServiceImpl();
+
+	public void addEmp() {
+		String name = InputUtil.getStringInput("Enter The Name:");
+		int id = IdGenerator.empIdGenerator();
+
+		System.out.println("emp id generated: " + id);
+		DataBase.displayGender();
+
+		int gId = InputUtil.getIntegerInput("Enter the id as displayed \nchoose the Gender:");
+		String Gender = DataBase.setGender(gId);
+
+		// address
+		String city = InputUtil.getStringInput("Enter The City:");
+		String state = InputUtil.getStringInput("Enter The State:");
+		String pinCode;
+		while (true) {
+			pinCode = InputUtil.getStringInput("Enter the 6-digit Pincode:");
+			try {
+				if (!Validator.isValidPincode(pinCode)) {
+					throw new InvalidPinException();
+				}
+				break;
+			} catch (InvalidPinException e) {
+				System.out.println("Error: " + e.getMessage());
+				System.out.println("Please try again.");
+			}
+		}
+
+		Address address = new Address(city, state, pinCode);
+		// jobprofile
+		JobProfile jr = new JobProfile();
+		char ch = InputUtil.getStringInput("Do you want to add job profile now or later:'y' or 'n'").charAt(0);
+		if (ch == 'y') {
+
+			DataBase.displayRoles();
+			int roleId = InputUtil.getIntegerInput("Enter The Id as above to set role:");
+			jr.setRole(DataBase.setRole(roleId));
+			if (jr.getRole().equals("Manager")) {
+				jr.setLeadId(100);
+				System.out.println("Lead id set as admin Id");
+			} else {
+				eserv.displayManager();
+				int leadId = InputUtil.getIntegerInput("Enter The LeadId as above:");
+				if (eserv.isLeadIdPresent(leadId)) {
+					jr.setLeadId(leadId);
+				} else {
+					System.out.println("Not  Assigned LeadId");
+				}
+			}
+
+			jr.setTotalWorkExperience(InputUtil.getIntegerInput("Enter The Year of Experience"));
+
+			jr.setSalary(InputUtil.getDoubleInput("Enter The Salary"));
+		}else {
+			System.out.println("Dont forget to assign it later !!!!!!!");
+
+		}
+
+		// user
+		String UserName = EmailGenerator.generateEmail(name);
+		System.out.println("Employees Auto Generated userName:" + UserName);
+		String pin = "password";
+		System.out.println("Employees Auto Generated Pin:" + pin);
+
+		User user = new User(UserName, pin);
+
+		DataBase.getListOfEmp().add(new Employee(id, name, Gender, address, user, jr));
+
+		// test
+//		System.out.println(DataBase.getListOfEmp().size());
+//		for(Employee e:DataBase.getListOfEmp()) {
+//			System.out.println(e.getName());
+//		}
+
+	}
+
+	public void displayEmp() {
+		eserv.displayEmployees();
+	}
+
+	public void loadDefaultEmployees() {
+		Address addr1 = new Address("Hyderabad", "Telangana", "500001");
+		User user1 = new User("ravi@mahathi", "password");
+		Employee manager1 = new Employee(101, "Ravi", "Male", addr1, user1);
+		JobProfile job1 = new JobProfile(100, "Manager", 8, 95000.0); // Admin = 100
+		manager1.setJobProfile(job1);
+		DataBase.getListOfEmp().add(manager1);
+
+		// Manager 2
+		Address addr2 = new Address("Chennai", "Tamil Nadu", "600001");
+		User user2 = new User("deepa@mahathi", "password");
+		Employee manager2 = new Employee(102, "Deepa", "Female", addr2, user2);
+		JobProfile job2 = new JobProfile(100, "Manager", 10, 97000.0);
+		manager2.setJobProfile(job2);
+		DataBase.getListOfEmp().add(manager2);
+
+		// Employee under Manager 1
+		Address addr3 = new Address("Vijayawada", "AP", "520001");
+		User user3 = new User("raj@mahathi", "password");
+		Employee emp1 = new Employee(103, "Raj", "Male", addr3, user3);
+		JobProfile job3 = new JobProfile(manager1.getEmpId(), "Technician", 3, 40000.0);
+		emp1.setJobProfile(job3);
+		DataBase.getListOfEmp().add(emp1);
+
+		Address addr4 = new Address("Guntur", "AP", "522002");
+		User user4 = new User("kavya@mahathi", "password");
+		Employee emp2 = new Employee(104, "Kavya", "Female", addr4, user4);
+		JobProfile job4 = new JobProfile(manager1.getEmpId(), "Intern", 1, 20000.0);
+		emp2.setJobProfile(job4);
+		DataBase.getListOfEmp().add(emp2);
+		// Employee under Manager 2
+		Address addr5 = new Address("Coimbatore", "TN", "641001");
+		User user5 = new User("ganesh@mahathi", "password");
+		Employee emp3 = new Employee(105, "Ganesh", "Male", addr5, user5);
+		JobProfile job5 = new JobProfile(manager2.getEmpId(), "Technician", 4, 42000.0);
+		emp3.setJobProfile(job5);
+		DataBase.getListOfEmp().add(emp3);
+		Address addr6 = new Address("Madurai", "TN", "625001");
+		User user6 = new User("rekha@mahathi", "password");
+		Employee emp4 = new Employee(106, "Rekha", "Female", addr6, user6);
+		JobProfile job6 = new JobProfile(manager2.getEmpId(), "Intern", 2, 25000.0);
+		emp4.setJobProfile(job6);
+		DataBase.getListOfEmp().add(emp4);
+
+		Address addr7 = new Address("Madurai", "TN", "625001");
+		User user7 = new User("maha@mahathi", "password");
+		Employee emp5 = new Employee(107, "Maha", "Female", addr7, user7);
+		JobProfile job7 = new JobProfile();
+		emp5.setJobProfile(job7);
+		DataBase.getListOfEmp().add(emp5);
+
+		System.out.println("Default employees loaded successfully.");
+	}
+
+	public void setRole() {
+		eserv.displayNullProfile();
+		int id = InputUtil.getIntegerInput("Enter the id to assign role");
+		Employee e = eserv.selectEmployeeById(id);
+		e.setJobProfile(new JobProfile());
+		JobProfile jr = new JobProfile();
+		eserv.displayManager();
+		int leadId = InputUtil.getIntegerInput("Enter The LeadId as above:");
+		if (eserv.isLeadIdPresent(leadId)) {
+			jr.setLeadId(leadId);
+		} else {
+			System.out.println("Not  Assigned LeadId");
+		}
+
+		DataBase.displayRoles();
+		int roleId = InputUtil.getIntegerInput("Enter The Id as above to set role:");
+		jr.setRole(DataBase.setRole(roleId));
+
+		jr.setTotalWorkExperience(InputUtil.getIntegerInput("Enter The Year of Experience"));
+
+		jr.setSalary(InputUtil.getDoubleInput("Enter The Salary"));
+	}
+
+	public void start() {
+		while (true) {
+
+			int choice = 0;
+			System.out.println("1.Add Employee \n2.View Employees  \n3.set Job Profile");
+			choice = InputUtil.getIntegerInput("Choose from above options");
+			switch (choice) {
+			case 1:
+				addEmp();
+				break;
+			case 2:
+				displayEmp();
+				break;
+			case 3:
+				setRole();
+				break;
+			default:
+				System.out.println("Invalid Choice");
+				break;
+			}
+
+			char ex = InputUtil.getStringInput("Enter 'y' or 'n' to copntinue to leave").toLowerCase().charAt(0);
+			if (ex == 'y') {
+				
+			}else {
+				
+			}
+		}
+	}
+
+}

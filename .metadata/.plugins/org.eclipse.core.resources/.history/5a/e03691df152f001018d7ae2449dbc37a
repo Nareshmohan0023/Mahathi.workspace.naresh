@@ -1,0 +1,16 @@
+package com.management.main;
+
+import com.management.controller.AdminController;
+
+public class Main {
+	public static void main(String[] args) {
+		AdminController ad=new AdminController();
+		ad.loadDefaultEmployees();
+//		ad.addEmp();
+		ad.displayEmp();
+		ad.setRole();
+		ad.displayEmp();
+
+	}
+
+}

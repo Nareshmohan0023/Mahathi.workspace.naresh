@@ -1,0 +1,8 @@
+package com.management.entity;
+
+public class Admin {
+	private static final int id=100;
+	private static final String userName="Admin";
+	private static final String password="Admin123";
+	
+}

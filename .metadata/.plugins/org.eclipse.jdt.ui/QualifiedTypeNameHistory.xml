@@ -8,10 +8,17 @@
     <fullyQualifiedTypeName name="com.service.ServiceImpl"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="com.ecommerce.entity.Category"/>
     <fullyQualifiedTypeName name="com.ecommerce.utils.IdGenerator"/>
-    <fullyQualifiedTypeName name="com.ecommerce.utils.InputUtil"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="com.ecommerce.db.DataBase"/>
+    <fullyQualifiedTypeName name="com.ecommerce.utils.InputUtil"/>
+    <fullyQualifiedTypeName name="com.management.utils.IdGenerator"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="com.management.utils.Validator"/>
+    <fullyQualifiedTypeName name="com.management.entity.Value"/>
+    <fullyQualifiedTypeName name="com.management.utils.InputUtil"/>
+    <fullyQualifiedTypeName name="com.management.entity.Admin"/>
+    <fullyQualifiedTypeName name="com.management.database.DataBase"/>
+    <fullyQualifiedTypeName name="com.management.utils.ConfigLoader"/>
 </qualifiedTypeNameHistroy>

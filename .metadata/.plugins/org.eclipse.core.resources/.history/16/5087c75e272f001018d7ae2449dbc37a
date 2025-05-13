@@ -1,0 +1,10 @@
+package com.management.utils;
+
+import java.util.Properties;
+
+public class ConfigLoader {
+	
+	private static final Properties prop=new Properties();
+	
+
+}

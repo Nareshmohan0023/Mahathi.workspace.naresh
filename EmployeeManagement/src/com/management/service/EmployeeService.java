@@ -1,0 +1,15 @@
+package com.management.service;
+
+import com.management.entity.Employee;
+
+public interface EmployeeService {
+	void displayManager();
+	boolean isLeadIdPresent(int id);
+	void displayEmployees();
+	void displayNullProfile();
+	Employee selectEmployeeById(int id);
+	public void changePasscode(Employee e,String passcode);
+	void displayDetailsOfEmployee(Employee e);
+	void underHimEmployees(Employee e);
+
+}

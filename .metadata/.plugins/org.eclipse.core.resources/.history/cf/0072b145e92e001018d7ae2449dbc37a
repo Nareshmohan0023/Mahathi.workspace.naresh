@@ -1,0 +1,5 @@
+package com.management.entity;
+
+public class Admin {
+	private static final int id=100;
+}

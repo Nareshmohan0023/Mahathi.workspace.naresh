@@ -1,0 +1,11 @@
+package com.management.entity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.management.utils.InputUtil;
+
+public class Value {
+
+	
+}

@@ -1,0 +1,13 @@
+package com.management.utils;
+
+public class Validator {
+	
+	public class ValidatorUtil {
+
+	    public static boolean isValidPincode(String pincode) {
+	        return pincode != null && pincode.matches("\\d{6}");
+	    }
+	}
+
+
+}

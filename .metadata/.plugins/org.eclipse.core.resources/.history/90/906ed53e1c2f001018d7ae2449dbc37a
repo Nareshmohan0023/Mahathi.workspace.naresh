@@ -1,0 +1,88 @@
+package com.management.service;
+
+import com.management.database.DataBase;
+import com.management.entity.Employee;
+import com.management.entity.JobProfile;
+
+public class EmployeeServiceImpl implements EmployeeService {
+
+	@Override
+	public void displayManager() {
+		for (Employee e : DataBase.getListOfEmp()) {
+			if (e.getJobProfile() != null && e.getJobProfile().getRole() != null) {
+				if ("Manager".equals(e.getJobProfile().getRole()) || e.getJobProfile().getRole().equals("Supervisor")) {
+					System.out.println("EmpId:" + e.getEmpId() + "Name:" + e.getName());
+				}
+			}
+		}
+	}
+
+	@Override
+	public boolean isLeadIdPresent(int id) {
+		for (Employee e : DataBase.getListOfEmp()) {
+			if (e.getJobProfile().getRole().equals("Manager")) {
+				if (id == e.getEmpId()) {
+					return true;
+				}
+			}
+		}
+		System.err.println("Manager or Supervisor Id not found");
+		return false;
+
+	}
+
+	@Override
+	public void displayEmployees() {
+		System.out.println("Managers");
+		for (Employee e : DataBase.getListOfEmp()) {
+			if (e.getJobProfile() != null && "Manager".equals(e.getJobProfile().getRole())) {
+				System.out.println(e.toString());
+			}
+		}
+
+		System.out.println("Employees");
+		for (Employee e : DataBase.getListOfEmp()) {
+			JobProfile job = e.getJobProfile();
+			if (job == null) {
+				System.out.println(e.toString() + " [No JobProfile assigned]");
+			}else if(!"Manager".equals(job.getRole())){
+				System.out.println(e.toString());
+
+			}
+		}
+	}
+
+	@Override
+	public void displayNullProfile() {
+		for (Employee e : DataBase.getListOfEmp()) {
+			JobProfile job = e.getJobProfile();
+			if (job == null) {
+				System.out.println(e.getName() + "and Id:" + e.getEmpId());
+			}
+		}
+	}
+
+	@Override
+	public Employee selectEmployeeById(int id) {
+		for (Employee e : DataBase.getListOfEmp()) {
+			if (e.getEmpId() == id) {
+				return e;
+			}
+
+		}
+		return null;
+	}
+
+	@Override
+	public void changePasscode(Employee e,String passcode) {
+		e.getUser().setPassword(passcode);
+		System.out.println("Changed password successfully");
+	}
+
+	@Override
+	public void displayDetailsOfEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

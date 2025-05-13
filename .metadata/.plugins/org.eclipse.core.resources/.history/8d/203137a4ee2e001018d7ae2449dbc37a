@@ -1,0 +1,24 @@
+package com.management.entity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Value {
+	
+	private static Map<Integer,String> roles=new HashMap<>();
+	
+	static {
+	roles.put(1, "Manager");
+    roles.put(2, "Supervisor");
+    roles.put(3, "Technician");
+    roles.put(4, "Intern");
+	}
+
+	public static Map<Integer, String> getRoles() {
+		return roles;
+	}
+	
+	public static String getRole(int id) {
+		return roles.get(id);
+	}
+}

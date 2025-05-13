@@ -119,7 +119,6 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 	@Override
 	public void stockDetails() {
-		// TODO Auto-generated method stub
 		
 	}
 	

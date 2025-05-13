@@ -1,0 +1,10 @@
+package com.management.entity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Roles {
+	
+	private final static Map<Integer,String> roles=new HashMap<>();
+
+}

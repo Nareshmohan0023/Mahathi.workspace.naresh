@@ -1,0 +1,47 @@
+package com.management.controller;
+
+import com.management.entity.Employee;
+import com.management.service.EmployeeService;
+import com.management.service.EmployeeServiceImpl;
+import com.management.utils.InputUtil;
+
+public class EmployeeController {
+
+	EmployeeService eserv = new EmployeeServiceImpl();
+
+
+	public void start(Employee e) {
+		while (true) {
+
+			int choice = 0;
+			System.out.println("1.Add Employee \n2.View Employees  \3.set Job Profile");
+			choice = InputUtil.getIntegerInput("Choose from above options");
+			switch (choice) {
+			case 1:
+//				addEmp();
+				break;
+			case 2:
+//				displayEmp();
+				break;
+			case 3:
+				changePasscode(e);
+				break;
+			default:
+				System.out.println("Invalid Choice");
+				break;
+			}
+
+			char ex = InputUtil.getStringInput("Enter 'y' or 'n' to copntinue to leave").toLowerCase().charAt(0);
+			if (ex != 'y') {
+				break;
+			}
+		}
+	}
+
+	public void changePasscode(Employee e) {
+		String passcode=InputUtil.getStringInput("Enter new Passcode:");
+		eserv.changePasscode(e, passcode);
+
+	}
+
+}
