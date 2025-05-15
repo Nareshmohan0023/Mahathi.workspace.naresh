@@ -1,5 +1,0 @@
-package com.customException;
-
-public class InsufficientFundsException {
-
-}

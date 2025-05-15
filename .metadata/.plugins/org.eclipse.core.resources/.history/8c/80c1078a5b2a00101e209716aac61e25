@@ -1,5 +1,0 @@
-package com.withdrawlsService;
-
-public class WithdrawlThread exetends Thread{
-
-}

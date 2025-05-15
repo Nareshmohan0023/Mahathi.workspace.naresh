@@ -1,6 +1,0 @@
-package com.Services;
-
-public interface Service {
-	Food selectById(int id);
-
-}

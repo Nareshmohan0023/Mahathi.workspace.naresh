@@ -1,8 +1,0 @@
-package com.entity;
-
-public class BankAccount {
-	
-	private String AccountHolder;
-	private int AccountNumber;
-
-}

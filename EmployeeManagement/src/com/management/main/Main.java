@@ -10,9 +10,11 @@ import com.management.utils.InputUtil;
 
 public class Main {
 	public static void main(String[] args) {
+		
 		AdminController acontrl = new AdminController();
 		EmployeeController econtrl=new EmployeeController();
 		acontrl.loadDefaultEmployees();
+		
 //		System.out.println(ConfigLoader.getAdminUsername());
 		char ex = 'y';
 		do {

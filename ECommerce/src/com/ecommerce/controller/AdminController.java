@@ -18,6 +18,7 @@ public class AdminController {
 		do {
 			int choice = 0;
 			System.out.println("1.Add Product \n2.DeleteProduct \n3.Alter quantity \n4.Add Category \n5.View Stock");
+			choice=InputUtil.getIntegerInput("Enter the choice");
 			switch (choice) {
 			case 1:
 				addProduct();
