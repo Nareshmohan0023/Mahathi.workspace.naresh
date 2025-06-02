@@ -1,0 +1,71 @@
+Why Stream API First?
+1. Functional Programming
+2.easy code writing and understanding
+3.Streams do not modify the source
+
+
+intermediate operation
+
+what they return?->All intermediate operations return a Stream
+
+some frequently used ones are
+
++--------------+------------------------------------------+--------------------------------------------------+
+| Operation    | What It Does                             | Example                                          |
++--------------+------------------------------------------+--------------------------------------------------+
+| filter()     | Filters elements by a condition          | filter(n -> n > 10)                              |
+| map()        | Transforms each element                  | map(String::toUpperCase)                         |
+| sorted()     | Sorts elements                           | sorted() or sorted(Comparator.reverseOrder())    |
+| distinct()   | Removes duplicates                       | distinct()                                       |
+| limit(n)     | Keeps first n elements                   | limit(5)                                         |
+| skip(n)      | Skips first n elements                   | skip(3)                                          |
+| flatMap()    | Flattens nested streams                  | flatMap(list -> list.stream())                   |
+| peek()       | Debug or log elements (no change)        | peek(System.out::println)                        |
++--------------+------------------------------------------+--------------------------------------------------+
+
+terminal operation
+
+Operation      | What It Does                                   | Example
+-------------- | ---------------------------------------------- | -------------------------------
+forEach()      | Performs action on each element (no result)    | forEach(System.out::println)
+collect()      | Converts stream to collection or data structure| collect(Collectors.toList())
+reduce()       | Combines elements to produce a single result   | reduce(0, Integer::sum)
+count()        | Counts elements in the stream                  | count()
+anyMatch()     | Checks if any element matches condition (bool) | anyMatch(n -> n > 10)
+allMatch()     | Checks if all elements match condition (bool)  | allMatch(n -> n > 0)
+noneMatch()    | Checks if no elements match condition (bool)   | noneMatch(n -> n < 0)
+findFirst()    | Finds the first element (returns Optional)     | findFirst()
+findAny()      | Finds any element (returns Optional)           | findAny()
+
+
+
+
+java.lang.IllegalStateException: stream has already been operated upon or closed //
+
+Streams Are Lazy//
+
+list.stream()
+    .filter(n -> {
+        System.out.println("Filtering " + n);
+        return n % 2 == 0;
+    })
+    .map(n -> {
+        System.out.println("Mapping " + n);
+        return n * 10;
+    });
+
+//
+
+Parallel stream
+
+Instead of stream(), use .parallelStream() on a collection.
+
+disadvantages
+
+->Not all operations benefit from parallelism; overhead may outweigh gains for small datasets.
+
+->Make sure operations are stateless and thread-safe.
+
+->Order may not be preserved unless explicitly handled.
+
+

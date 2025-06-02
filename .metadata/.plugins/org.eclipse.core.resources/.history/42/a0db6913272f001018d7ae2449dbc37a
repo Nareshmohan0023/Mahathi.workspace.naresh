@@ -1,9 +1,0 @@
-package com.management.utils;
-
-import java.util.Properties;
-
-public class ConfigLoader {
-	
-	Properties prop=new Properties();
-
-}

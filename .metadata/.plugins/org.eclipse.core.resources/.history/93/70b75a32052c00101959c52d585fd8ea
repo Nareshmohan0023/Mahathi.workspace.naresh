@@ -1,7 +1,0 @@
-package com.ecommerce.controller;
-
-public class CategoryController {
-	
-	CategoryService cserv=new CategoryServiceImpl();
-
-}

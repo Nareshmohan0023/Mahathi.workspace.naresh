@@ -1,7 +1,0 @@
-package com.management.entity;
-
-public class User {
-	
-	private int id;
-
-}

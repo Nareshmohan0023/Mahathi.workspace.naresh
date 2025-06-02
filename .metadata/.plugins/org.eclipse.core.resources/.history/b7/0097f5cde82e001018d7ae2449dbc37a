@@ -1,8 +1,0 @@
-package com.management.entity;
-
-public class User {
-	
-	
-	private String UserName;
-
-}

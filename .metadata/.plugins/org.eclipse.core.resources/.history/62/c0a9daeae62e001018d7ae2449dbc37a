@@ -1,7 +1,0 @@
-package com.management.entity;
-
-public class Roles {
-	
-	private final static Map<Integer,String> roles=new HashMap<>();
-
-}

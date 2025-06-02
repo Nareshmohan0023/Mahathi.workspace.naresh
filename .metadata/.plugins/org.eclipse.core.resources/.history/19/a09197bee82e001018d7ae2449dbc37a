@@ -1,9 +1,0 @@
-package com.management.entity;
-
-public class Employee {
-	private String Name;
-	private String Gender;
-	private Address address;
-	private JobProfile jobProfile;
-	private User user;
-}

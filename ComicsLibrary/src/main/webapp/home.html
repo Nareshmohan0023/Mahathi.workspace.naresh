@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<h2>View all Books</h2>
+		<form action="library" method="get">
+			<input type="hidden" name="action" value="viewBooks">
+			<button type="submit">View All Books</button>
+			<br>
+			<br>
+		</form>
+		<form action="library" method="post">
+			<input type="hidden" name="action" value="viewByID"> <input
+				name="isbn" placeholder="Enter isbn if applicable"
+				required="required"></input><br>
+			<br>
+			<button type="submit">VIEW</button>
+			<br>
+			<br>
+		</form>
+		<strong>Add book</strong>
+		<form action="library" method="post">
+			<input type="hidden" name="action" value="addBook"><br>
+			<br> <input placeholder="Book name" name="book"
+				required="required"></input><br>
+			<br> <input placeholder="Author" name="author"
+				required="required"></input><br>
+			<br> <input placeholder="ISBN" name="isbn" required="required"></input><br>
+			<br> <input type="submit">
+		</form>
+		<br>
+		<br> <strong>Search(a-z/A-Z):</strong>
+		<form action="library" method="post">
+			<input type="hidden" name="action" value="search"><br>
+			<br> <input placeholder="Book name" name="keyword"
+				required="required"></input><br>
+			<br> <input type="submit"><br>
+			<br>
+		</form>
+		<form action="home" method="post">
+			<input type="submit" name="action" value="logout">
+		</form>
+</body>
+</center>
+</html>

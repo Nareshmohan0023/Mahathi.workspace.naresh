@@ -1,9 +1,0 @@
-package com.ecommerce.service;
-
-import com.ecommerce.entity.CartItem;
-
-public interface CartService {
-	
-	void addItem(CartItem item);
-
-}

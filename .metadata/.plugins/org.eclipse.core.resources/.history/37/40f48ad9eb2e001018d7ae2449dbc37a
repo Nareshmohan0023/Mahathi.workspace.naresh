@@ -1,6 +1,0 @@
-package com.management.database;
-
-public class DataBase {
-	private static List<Employee> Employees=new ArrayList<>();
-
-}
